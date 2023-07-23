@@ -37,7 +37,6 @@ int _printf(const char *format, ...)
 				else
 				{
 					len += function(arguments, buffer, ibuf);
-
 				}
 			} i++;
 		}
