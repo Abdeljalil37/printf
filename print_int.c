@@ -136,7 +136,7 @@ int prinlunt(va_list arguments, char *buf, unsigned int ibuf)
 	int_in = va_arg(arguments, unsigned long int);
 	int_tmp = int_in;
 	div = 1;
-	while (int_temp > 9)
+	while (int_tmp > 9)
 	{
 		div *= 10;
 		int_tmp /= 10;
