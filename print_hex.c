@@ -41,6 +41,7 @@ int print_hex(va_list arguments, char *buf, unsigned int ibuf)
 	free(hexadecimal);
 	return (count);
 }
+
 /**
  * fill_hex_array - writes the character c to stdout
  *
@@ -51,6 +52,7 @@ int print_hex(va_list arguments, char *buf, unsigned int ibuf)
  * @limit: size of hex
  * Return: binary array.
  */
+
 char *fill_hex_array(char *bnr, char *hex, int isupp, int limit)
 {
 	int op, i, j, toletter;
