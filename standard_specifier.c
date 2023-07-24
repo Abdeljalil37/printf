@@ -39,6 +39,7 @@ int print_chr(va_list arguments, char *buf, unsigned int ibuf)
  * @ibuf: index for buffer pointer
  * Return: On success 1.
  */
+
 int print_str(va_list arguments, char *buf, unsigned int ibuf)
 {
 	char *str;
