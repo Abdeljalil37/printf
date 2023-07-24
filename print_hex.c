@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * print_hex - prints a decimal in hexadecimal
  * @arguments: input string
@@ -6,6 +7,7 @@
  * @ibuf: index for buffer pointer
  * Return: number of chars printed
  */
+
 int print_hex(va_list arguments, char *buf, unsigned int ibuf)
 {
 	int int_input, i, isnegative, count, first_digit;
@@ -30,7 +32,9 @@ int print_hex(va_list arguments, char *buf, unsigned int ibuf)
 	for (first_digit = i = count = 0; hexadecimal[i]; i++)
 	{
 		if (hexadecimal[i] != '0' && first_digit == 0)
+		{
 			first_digit = 1;
+		}
 		if (first_digit)
 		{
 			ibuf = handl_buf(buf, hexadecimal[i], ibuf);
@@ -59,9 +63,13 @@ char *fill_hex_array(char *bnr, char *hex, int isupp, int limit)
 
 	hex[limit] = '\0';
 	if (isupp)
+	{
 		toletter = 55;
+	}
 	else
+	{
 		toletter = 87;
+	}
 	for (i = (limit * 4) - 1; i >= 0; i--)
 	{
 		for (op = 0, j = 1; j <= 8; j *= 2, i--)
