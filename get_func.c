@@ -14,6 +14,7 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 		{"i", print_int}, {"d", print_int},
 		{"%", print_prg}, {"o", print_oct},
 		{"S", print_usr}, {"p", print_add},
+		{"R", print_rot}, {"r", print_rev},
 		{NULL, NULL},
 	};
 	int i = 0, j = 0, first_index;
@@ -37,3 +38,5 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 	}
 	return (pr[i].f);
 }
+
+
