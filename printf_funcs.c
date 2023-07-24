@@ -17,7 +17,8 @@ int ev_print_func(const char *s, int index)
 		{"X", print_upx}, {"%", print_prg},
 		{"S", print_usr}, {"p", print_add},
 		{"R", print_rot}, {"r", print_rev},
-		{NULL, NULL},
+		{"l", print_prg}, {"h", print_prg},
+		{"%", print_prg}, {NULL, NULL},
 	};
 	int len = 0, count = 0, first_index;
 
