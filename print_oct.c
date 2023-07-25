@@ -74,17 +74,17 @@ char *fill_long_oct_array(char *bnr, char *oct)
  */
 char *fill_oct_array(char *bnr, char *oct)
 {
-	int op, i, j, ioct, limit;
+	int op, len, count, ioct, limit;
 
 	oct[11] = '\0';
-	for (i = 31, ioct = 10; i >= 0; i--, ioct--)
+	for (len = 31, ioct = 10; len >= 0; len--, ioct--)
 	{
-		if (i > 1)
+		if (len > 1)
 			limit = 4;
 		limit = 2;
-		for (op = 0, j = 1; j <= limit; j *= 2, i--)
-			op = ((bnr[i] - '0') * j) + op;
-		i++;
+		for (op = 0, count = 1; count <= limit; count *= 2, len--)
+			op = ((bnr[i] - '0') * count) + op;
+		len++;
 		oct[ioct] = op + '0';
 	}
 	return (oct);
