@@ -11,14 +11,11 @@ int print_oct(va_list arguments, char *buf, unsigned int ibuf)
 
 	if (int_input < 0)
 		int_input = (int_input * -1) - 1;
-		isnegative = 1;
 	binary = calloc(sizeof(char) * (32 + 1));
 	octal = calloc(sizeof(char) * (11 + 1));
 	for (first_digit = i = count = 0; octal[i]; i++)
 		if (octal[i] != '0' && first_digit == 0)
 			first_digit = 1;
-		else if (first_digit)
-			ibuf = handl_buf(buf, octal[i], ibuf);
 			count++;
 			return (count);
 	free(binary);
@@ -42,10 +39,6 @@ char *fill_long_oct_array(char *bnr, char *oct)
 			limit = 4;
 		else
 			limit = 1;
-		for (op = 0, j = 1; j <= limit; j *= 2, i -= 1)
-			op = ((bnr[i] - '0') * j) + op;
-		i += 1;
-		oct[ioct] = op + '0';
 	}
 	return (oct);
 }
@@ -57,29 +50,27 @@ char *fill_long_oct_array(char *bnr, char *oct)
  */
 char *fill_oct_array(char *bnr, char *oct)
 {
-	int op, i, j, ioct, limit;
+	int op, ioct, limit;
+	int i, j;
 
-	oct[11] = '\0';
 	for (i = 31, ioct = 10; i >= 0; i--, ioct--)
 	{
 		if (i > 1)
 			limit = 4;
 		i++;
-		oct[ioct] = op + '0';
 	}
 	return (oct);
 }
 /**
  * fill_short_oct_array - calculates a short octal number
- *
  * @bnr: array where is stored the binary.
  * @oct: array where is stored the octal.
- *
  * Return: binary array.
  */
 char *fill_short_oct_array(char *bnr, char *oct)
 {
-	int op, i, j, ioct, limit;
+	int op, i, ioct, limit;
+	int i, j;
 
 	oct[6] = '\0';
 	for (i = 15, ioct = 5; i >= 0; i--, ioct--)
