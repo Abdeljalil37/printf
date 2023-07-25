@@ -26,10 +26,8 @@ int print_add(va_list arguments, char *buf, unsigned int ibuf)
 	int_input = (intptr_t)add;
 	isnegative = 0;
 	if (int_input < 0)
-	{
 		int_input = (int_input * -1) - 1;
 		isnegative = 1;
-	}
 	binary = malloc(sizeof(char) * (64 + 1));
 	binary = fill_binary_array(binary, int_input, isnegative, 64);
 	hexadecimal = malloc(sizeof(char) * (16 + 1));
