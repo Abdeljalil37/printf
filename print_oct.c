@@ -25,14 +25,20 @@ int print_oct(va_list arguments, char *buf, unsigned int ibuf)
 		isnegative = 1;
 	}
 	binary = malloc(sizeof(char) * (32 + 1));
+	binary = fill_binary_array(binary, int_input, isnegative, 32);
 	octal = malloc(sizeof(char) * (11 + 1));
+	octal = fill_oct_array(binary, octal);
 	for (first_digit = i = count = 0; octal[i]; i++)
 	{
 		if (octal[i] != '0' && first_digit == 0)
 			first_digit = 1;
 		if (first_digit)
+		{
+			ibuf = handl_buf(buf, octal[i], ibuf);
 			count++;
+		}
 	}
+	free(binary);
 	free(octal);
 	return (count);
 }
@@ -48,17 +54,17 @@ int print_oct(va_list arguments, char *buf, unsigned int ibuf)
 char *fill_long_oct_array(char *bnr, char *oct)
 {
 	int op, i, j, ioct, limit;
-	int len, count;
 
 	oct[22] = '\0';
-	for (len = 63, ioct = 21; len >= 0; len--, ioct--)
+	for (i = 63, ioct = 21; i >= 0; i--, ioct--)
 	{
-		if (len > 0)
+		if (i > 0)
 			limit = 4;
-		limit = 1;
-		for (op = 0, count = 1; j <= limit; count *= 2, len--)
-			op = ((bnr[len] - '0') * count) + op;
-		len++;
+		else
+			limit = 1;
+		for (op = 0, j = 1; j <= limit; j *= 2, i--)
+			op = ((bnr[i] - '0') * j) + op;
+		i++;
 		oct[ioct] = op + '0';
 	}
 	return (oct);
@@ -74,17 +80,18 @@ char *fill_long_oct_array(char *bnr, char *oct)
  */
 char *fill_oct_array(char *bnr, char *oct)
 {
-	int op, len, count, ioct, limit;
+	int op, i, j, ioct, limit;
 
 	oct[11] = '\0';
-	for (len = 31, ioct = 10; len >= 0; len--, ioct--)
+	for (i = 31, ioct = 10; i >= 0; i--, ioct--)
 	{
-		if (len > 1)
+		if (i > 1)
 			limit = 4;
-		limit = 2;
-		for (op = 0, count = 1; count <= limit; count *= 2, len--)
-			op = ((bnr[i] - '0') * count) + op;
-		len++;
+		else
+			limit = 2;
+		for (op = 0, j = 1; j <= limit; j *= 2, i--)
+			op = ((bnr[i] - '0') * j) + op;
+		i++;
 		oct[ioct] = op + '0';
 	}
 	return (oct);
@@ -100,19 +107,18 @@ char *fill_oct_array(char *bnr, char *oct)
  */
 char *fill_short_oct_array(char *bnr, char *oct)
 {
-	int op, ioct, limit;
-	int len, count;
+	int op, i, j, ioct, limit;
 
 	oct[6] = '\0';
-	for (len = 15, ioct = 5; len >= 0; len--, ioct--)
+	for (i = 15, ioct = 5; i >= 0; i--, ioct--)
 	{
 		if (i > 0)
 			limit = 4;
 		else
 			limit = 1;
-		for (op = 0, count = 1; count <= limit; count *= 2, len--)
-			op = ((bnr[len] - '0') * j) + op;
-		len += 1;
+		for (op = 0, j = 1; j <= limit; j *= 2, i--)
+			op = ((bnr[i] - '0') * j) + op;
+		i++;
 		oct[ioct] = op + '0';
 	}
 	return (oct);
