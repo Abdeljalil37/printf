@@ -101,10 +101,11 @@ char *fill_oct_array(char *bnr, char *oct)
 
 char *fill_short_oct_array(char *bnr, char *oct)
 {
-	int op, i, j, ioct, limit;
+	int op, ioct, limit;
+	int len, count;
 
 	oct[6] = '\0';
-	for (i = 15, ioct = 5; i >= 0; i--, ioct--)
+	for (len = 15, ioct = 5; len >= 0; len--, ioct--)
 	{
 		if (i > 0)
 		{
@@ -114,11 +115,11 @@ char *fill_short_oct_array(char *bnr, char *oct)
 		{
 			limit = 1;
 		}
-		for (op = 0, j = 1; j <= limit; j *= 2, i--)
+		for (op = 0, count = 1; count <= limit; count *= 2, len--)
 		{
-			op = ((bnr[i] - '0') * j) + op;
+			op = ((bnr[len] - '0') * j) + op;
 		}
-		i += 1;
+		len += 1;
 		oct[ioct] = op + '0';
 	}
 	return (oct);
