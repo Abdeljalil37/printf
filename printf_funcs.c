@@ -26,26 +26,32 @@ int ev_print_func(const char *s, int index)
 		{"lo", prinloct}, {"hu", prinhunt},
 		{"hx", prinhhex}, {"hX", prinhupx},
 		{"hd", prinhint}, {"hi", prinhint},
-		{"ho", prinhoct}, {NULL, NULL},
+		{"ho", prinhoct}, {"#o", prinnoct},
+		{"#x", prinnhex}, {"#X", prinnupx},
+		{"#d", print_int}, {"#u", print_unt},
+		{"#i", print_int}, {"+i", prinpint},
+		{"+d", prinpint}, {" +i", prinpint},
+		{" +d", prinpint}, {"+ i", prinpint},
+		{"+ d", prinpint}, {NULL, NULL},
 	};
-	int len = 0, count = 0, first_index;
+	int i = 0, j = 0, first_index;
 
 	first_index = index;
-	while (pr[len].type_arg)
+	while (pr[i].type_arg)
 	{
-		if (s[index] == pr[len].type_arg[count])
+		if (s[index] == pr[i].type_arg[j])
 		{
-			if (pr[len].type_arg[count + 1] != '\0')
-				index++, count++;
+			if (pr[i].type_arg[j + 1] != '\0')
+				index++, j++;
 			else
 				break;
 		}
 		else
 		{
-			count = 0;
-			len++;
+			j = 0;
+			i++;
 			index = first_index;
 		}
 	}
-	return (count);
+	return (j);
 }

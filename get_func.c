@@ -24,7 +24,13 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 		{"lo", prinloct}, {"hu", prinhunt},
 		{"hx", prinhhex}, {"hX", prinhupx},
 		{"hd", prinhint}, {"hi", prinhint},
-		{"ho", prinhoct}, {NULL, NULL},
+		{"ho", prinhoct}, {"#o", prinnoct},
+		{"#x", prinnhex}, {"#X", prinnupx},
+		{"#d", print_int}, {"#u", print_unt},
+		{"#i", print_int}, {"+i", prinpint},
+		{"+d", prinpint}, {" +i", prinpint},
+		{" +d", prinpint}, {"+ i", prinpint},
+		{"+ d", prinpint}, {NULL, NULL},
 	};
 	int i = 0, j = 0, first_index;
 
@@ -47,5 +53,3 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 	}
 	return (pr[i].f);
 }
-
-
