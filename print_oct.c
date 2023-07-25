@@ -9,9 +9,6 @@
 int print_oct(va_list arguments, char *buf, unsigned int ibuf)
 {
 
-	if (int_input == 0)
-		ibuf = handl_buf(buf, '0', ibuf);
-		return (1);
 	if (int_input < 0)
 		int_input = (int_input * -1) - 1;
 		isnegative = 1;
@@ -23,6 +20,7 @@ int print_oct(va_list arguments, char *buf, unsigned int ibuf)
 		else if (first_digit)
 			ibuf = handl_buf(buf, octal[i], ibuf);
 			count++;
+			return (count);
 	free(binary);
 	return (count);
 }
