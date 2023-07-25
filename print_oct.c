@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * print_oct - prints decimal number in octal
  * @arguments: input number
@@ -35,6 +36,7 @@ int print_oct(va_list arguments, char *buf, unsigned int ibuf)
 	free(octal);
 	return (count);
 }
+
 /**
  * fill_long_oct_array - calculates a long octal number
  *
@@ -61,6 +63,7 @@ char *fill_long_oct_array(char *bnr, char *oct)
 	}
 	return (oct);
 }
+
 /**
  * fill_oct_array - writes the character c to stdout
  *
@@ -95,7 +98,6 @@ char *fill_oct_array(char *bnr, char *oct)
  *
  * Return: binary array.
  */
-
 char *fill_short_oct_array(char *bnr, char *oct)
 {
 	int op, ioct, limit;
