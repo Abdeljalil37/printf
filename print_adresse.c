@@ -14,14 +14,18 @@ int print_add(va_list arguments, char *buf, unsigned int ibuf)
 {
 	void *add;
 	long int int_input;
-	int i, count, first_digit, isnegative;
-	char *hexadecimal, *binary;
+	int len, count, first_digit, isnegative;
+	unsigned int i;
+	char *hexadecimal;
+	char* binary;
 	char nill[] = "(nil)";
 
 	add = (va_arg(arguments, void *));
 	if (add == NULL)
-		for (i = 0; nill[i]; i++)
+		i=0;
+		while (nill[i])
 			ibuf = handl_buf(buf, nill[i], ibuf);
+			i++;
 		return (5);
 	int_input = (intptr_t)add;
 	isnegative = 0;
