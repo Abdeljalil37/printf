@@ -19,6 +19,10 @@ int prinlint(va_list arguments, char *buf, unsigned int ibuf)
 		ibuf = handl_buf(buf, '-', ibuf);
 		isneg = 1;
 	}
+	else
+	{
+		int_in = int_input;
+	}
 
 	int_temp = int_in;
 	div = 1;
