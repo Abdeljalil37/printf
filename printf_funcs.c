@@ -20,7 +20,13 @@ int ev_print_func(const char *s, int index)
 		{"l", print_prg}, {"h", print_prg},
 		{"#u", print_unt}, {"+u", print_unt},
 		{" u", print_unt}, {"+X", print_upx},
-		{" X", print_upx}, {NULL, NULL},
+		{" X", print_upx}, {"li", prinlint},
+		{"ld", prinlint}, {"lu", prinlunt},
+		{"lx", prinlhex}, {"lX", prinlupx},
+		{"lo", prinloct}, {"hu", prinhunt},
+		{"hx", prinhhex}, {"hX", prinhupx},
+		{"hd", prinhint}, {"hi", prinhint},
+		{"ho", prinhoct}, {NULL, NULL},
 	};
 	int len = 0, count = 0, first_index;
 
