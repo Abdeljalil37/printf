@@ -1,17 +1,16 @@
 #include "main.h"
 
 /**
- * print_int - print an integer
+ * print_int - prints an integer
  * @arguments: input string
- * @buf: buffer of  pointer
+ * @buf: buffer pointer
  * @ibuf: index for buffer pointer
  * Return: number of chars printed.
  */
-
 int print_int(va_list arguments, char *buf, unsigned int ibuf)
 {
 	int int_input;
-	unsigned int int_in, int_tmp, len, div, isneg;
+	unsigned int int_in, int_temp, i, div, isneg;
 
 	int_input = va_arg(arguments, int);
 	isneg = 0;
@@ -26,20 +25,18 @@ int print_int(va_list arguments, char *buf, unsigned int ibuf)
 		int_in = int_input;
 	}
 
-	int_tmp = int_in;
+	int_temp = int_in;
 	div = 1;
 
-	while (int_tmp > 9)
+	while (int_temp > 9)
 	{
 		div *= 10;
-		int_tmp /= 10;
+		int_temp /= 10;
 	}
 
-	for (len = 0; div > 0; div /= 10, len++)
+	for (i = 0; div > 0; div /= 10, i++)
 	{
 		ibuf = handl_buf(buf, ((int_in / div) % 10) + '0', ibuf);
 	}
-	return (len + isneg);
+	return (i + isneg);
 }
-
-

@@ -6,7 +6,6 @@
  * @c: charcter to concatenate
  * @ibuf: index of buffer pointer
  * Return: index of buffer pointer.
- *
  */
 unsigned int handl_buf(char *buf, char c, unsigned int ibuf)
 {
@@ -17,6 +16,6 @@ unsigned int handl_buf(char *buf, char c, unsigned int ibuf)
 	}
 	buf[ibuf] = c;
 	ibuf++;
-
+	
 	return (ibuf);
 }

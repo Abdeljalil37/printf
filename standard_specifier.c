@@ -31,7 +31,6 @@ int print_chr(va_list arguments, char *buf, unsigned int ibuf)
 	return (1);
 }
 
-
 /**
  * print_str - writes the string to stdout
  * @arguments: input string
@@ -39,7 +38,6 @@ int print_chr(va_list arguments, char *buf, unsigned int ibuf)
  * @ibuf: index for buffer pointer
  * Return: On success 1.
  */
-
 int print_str(va_list arguments, char *buf, unsigned int ibuf)
 {
 	char *str;

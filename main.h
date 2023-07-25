@@ -24,6 +24,7 @@ typedef struct print
 int _printf(const char *format, ...);
 void _puts(char *str);
 int _putchar(char c);
+
 int print_prg(va_list __attribute__((unused)), char *, unsigned int);
 int print_chr(va_list arguments, char *buf, unsigned int ibuf);
 int print_str(va_list arguments, char *buf, unsigned int ibuf);
@@ -47,6 +48,11 @@ int prinhunt(va_list arguments, char *buf, unsigned int ibuf);
 int prinhoct(va_list arguments, char *buf, unsigned int ibuf);
 int prinhhex(va_list arguments, char *buf, unsigned int ibuf);
 int prinhupx(va_list arguments, char *buf, unsigned int ibuf);
+int prinpint(va_list arguments, char *buf, unsigned int ibuf);
+int prinnoct(va_list arguments, char *buf, unsigned int ibuf);
+int prinnhex(va_list arguments, char *buf, unsigned int ibuf);
+int prinnupx(va_list arguments, char *buf, unsigned int ibuf);
+int prinsint(va_list arguments, char *buf, unsigned int ibuf);
 
 int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int);
 int ev_print_func(const char *s, int index);

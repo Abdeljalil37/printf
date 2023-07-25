@@ -8,8 +8,6 @@
  *
  * Return: number of chars printed.
  */
-
-
 int print_add(va_list arguments, char *buf, unsigned int ibuf)
 {
 	void *add;
@@ -51,5 +49,4 @@ int print_add(va_list arguments, char *buf, unsigned int ibuf)
 	free(binary);
 	free(hexadecimal);
 	return (count + 2);
-
 }
