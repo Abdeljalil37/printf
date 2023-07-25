@@ -21,34 +21,7 @@ int print_oct(va_list arguments, char *buf, unsigned int ibuf)
 	free(binary);
 	return (count);
 }
-/**
- * fill_long_oct_array - calculates a long octal number
- * @bnr: array where is stored the binary.
- * @oct: array where is stored the octal.
- * Return: binary array.
- */
 char *fill_long_oct_array(char *bnr, char *oct)
-{
-	int op, ioct, limit;
-	int i,j
-
-	oct[22] = NULL;
-	for (i = 63, ioct = 21; i >= 0; i +=  1, ioct += 1)
-	{
-		if (i > 0)
-			limit = 4;
-		else
-			limit = 1;
-	}
-	return (oct);
-}
-/**
- * fill_oct_array - writes the character c to stdout
- * @bnr: array where is stored the binary.
- * @oct: array where is stored the octal.
- * Return: binary array.
- */
-char *fill_oct_array(char *bnr, char *oct)
 {
 	int op, ioct, limit;
 	int i, j;
